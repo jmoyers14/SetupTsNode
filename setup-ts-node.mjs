@@ -19,10 +19,10 @@ function setupProject(projectName) {
 
   // Step 3: Install dev dependencies
   console.log('Installing dev dependencies: @esbuild-kit/esm-loader, typescript');
-  execSync('yarn add -D @esbuild-kit/esm-loader typescript @types/node', { cwd: projectPath, stdio: 'inherit' });
+  execSync('yarn add -D @esbuild-kit/esm-loader typescript @types/node dotenv', { cwd: projectPath, stdio: 'inherit' });
 
   // Step 4: Add .gitignore
-  const gitignoreContent = `node_modules`;
+  const gitignoreContent = `node_modules\n.env*`;
   writeFileSync(path.join(projectPath, '.gitignore'), gitignoreContent);
   console.log('Created .gitignore to exclude node_modules');
 
